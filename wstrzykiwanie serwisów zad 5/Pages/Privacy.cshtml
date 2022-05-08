@@ -6,3 +6,11 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+<div class="text-center">
+<p>W bazie jest @Model.Records.Count obiektów. Lista
+aktywnych osób:</p>
+@foreach (var item in Model.Records) {
+<p>@item.FullName() @item.Przestepca()</p>
+}
+
+</div>

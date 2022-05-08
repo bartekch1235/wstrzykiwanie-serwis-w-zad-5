@@ -3,11 +3,31 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Person.FirstName" class="control-label"></label>
+        <input asp-for="Person.FirstName" class="form-control" />
+        <span asp-validation-for="Person.FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Person.LastName" class="control-label"></label>
+        <input asp-for="Person.LastName" class="form-control" />
+    </div>
+     <div class="form-group">
+        <label asp-for="Person.Year" class="control-label"></label>
+        <input asp-for="Person.Year" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
 
 <div class="text-center">
 <p>W bazie jest @Model.Records.Count obiektów. Lista
 aktywnych osób:</p>
-@foreach (var item in Model.Records.People) {
-<p>@item.FullName</p>
+@foreach (var item in Model.Records) {
+<p>@item.FullName() @item.Przestepca()</p>
 }
+
 </div>

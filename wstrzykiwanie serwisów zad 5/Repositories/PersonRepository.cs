@@ -16,6 +16,36 @@ namespace wstrzykiwanie_serwisów_zad_5.Repositories
         {
             return _context.Person.Where(p => p.IsActive);
         }
+        public void AddPerson(Person p)
+        {
+            
+            _context.Person.Add(p);
+            _context.SaveChanges();
+        }
+        public List<Person> GetAllEntires()
+        {
+            List<Person> ludzie=new List<Person>();
+            foreach (Person p in _context.Person)
+            {
+                ludzie.Add(p);
+            }
+            return ludzie;
+
+        }
+        public List<Person> GetAllEntiresFromToday()
+        {
+            DateTime dateTime = DateTime.Now;
+            List<Person> ludzie = new List<Person>();
+            foreach (Person p in _context.Person)
+            {
+                dateTime = Convert.ToDateTime(p.Data);
+                if (dateTime.Day==DateTime.Today.Day)
+                    ludzie.Add(p);
+            }
+            return ludzie;
+
+        }
+
 
     }
 

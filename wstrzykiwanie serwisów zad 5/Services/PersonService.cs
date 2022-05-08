@@ -1,4 +1,5 @@
 ﻿using wstrzykiwanie_serwisów_zad_5.Interfaces;
+using wstrzykiwanie_serwisów_zad_5.Models;
 using wstrzykiwanie_serwisów_zad_5.ViewModels.Person;
 
 namespace wstrzykiwanie_serwisów_zad_5.Services
@@ -28,6 +29,18 @@ namespace wstrzykiwanie_serwisów_zad_5.Services
             }
             result.Count = result.People.Count;
             return result;
+        }
+        public void AddEntry(Person p)
+        {
+            _personRepo.AddPerson(p);
+        }
+        public List<Person> GetAllEntiresFromToday()
+            {
+            return _personRepo.GetAllEntiresFromToday();
+            }
+        public List<Person> GetAllEntires()
+        {
+            return _personRepo.GetAllEntires();
         }
     }
 
